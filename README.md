@@ -16,7 +16,7 @@ gaits selectable at runtime and smooth transitions between them.
 | **Foothold prediction** | `predict_moment_arms` projects stance anchors across the full MPC horizon |
 | **Ground tracking** | per-foot height estimate filtered from loaded stance feet |
 
-## gait generation
+## Gaits
 A `GaitProfile` carries a period, a duty factor, and four per-leg phase offsets; a single global phase
 advances with the control clock, and each leg's contact state and swing progress are sampled
 from it. Contact schedules for the MPC horizon come from sampling that same phase forward in
