@@ -4,6 +4,8 @@ A multi-gait locomotion controller for quadruped robots, built on convex model p
 control over the single rigid body model. Runs in MuJoCo on the Unitree Go1 and A1, with six
 gaits selectable at runtime and smooth transitions between them.
 
+[![Watch the video](https://img.youtube.com/vi/8v1ONeGRCd0/maxresdefault.jpg)](https://www.youtube.com/watch?v=8v1ONeGRCd0)
+
 ## Stack
 
 | Component | Implementation |
