@@ -60,3 +60,7 @@ Useful flags: `--robot {go1,a1}`, `--gait {stand,walk,trot,pace,bounding,amble}`
 | `+`/`-` | adjust drive speed |
 | `Space` / `P` / `R` | stop / pause / reset |
 | `F` / `H` / `Esc` | follow camera / hide overlay / quit |
+
+## References
+Di Carlo, J., Wensing, P. M., Katz, B., Bledt, G., & Kim, S. (2018). "Dynamic Locomotion in the MIT Cheetah 3 Through Convex Model-Predictive Control."
+pympc-quadruped by yinghansun (MIT License).
