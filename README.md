@@ -62,7 +62,8 @@ Useful flags: `--robot {go1,a1}`, `--gait {stand,walk,trot,pace,bounding,amble}`
 | `F` / `H` / `Esc` | follow camera / hide overlay / quit |
 
 ## References
-**Di Carlo, J., Wensing, P. M., Katz, B., Bledt, G., & Kim, S. (2018). "Dynamic Locomotion
+- **Di Carlo, J., Wensing, P. M., Katz, B., Bledt, G., & Kim, S. (2018). "Dynamic Locomotion
+  in the MIT Cheetah 3 Through Convex Model-Predictive Control."** IROS 2018.
 [MIT Cheetah-Software](https://github.com/mit-biomimetics/Cheetah-Software)
   (BSD-3-Clause).
 - **[pympc-quadruped](https://github.com/yinghansun/pympc-quadruped)** by yinghansun
