@@ -67,3 +67,7 @@ Useful flags: `--robot {go1,a1}`, `--gait {stand,walk,trot,pace,bounding,amble}`
 [MIT Cheetah-Software](https://github.com/mit-biomimetics/Cheetah-Software)
   (BSD-3-Clause).
 - **[pympc-quadruped](https://github.com/yinghansun/pympc-quadruped)** by yinghansun
+
+## License
+Robot models in `go1/` and `unitree_robotics_a1/` are Unitree Robotics assets, redistributed
+under the BSD 3-Clause license in their respective directories.
