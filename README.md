@@ -15,3 +15,48 @@ gaits selectable at runtime and smooth transitions between them.
 | **Swing trajectory** | hand-rolled quintic + raised-cosine blends, vectorized `(4, 3)` across all legs |
 | **Foothold prediction** | `predict_moment_arms` projects stance anchors across the full MPC horizon |
 | **Ground tracking** | per-foot height estimate filtered from loaded stance feet |
+
+## gait generation
+A `GaitProfile` carries a period, a duty factor, and four per-leg phase offsets; a single global phase
+advances with the control clock, and each leg's contact state and swing progress are sampled
+from it. Contact schedules for the MPC horizon come from sampling that same phase forward in
+time, so the gait definition and the MPC's contact prediction can never drift apart.
+
+Because the phase is continuous, gait changes don't have to snap to a segment boundary — the
+generator settles into the requested gait over a transition window instead.
+
+| Gait | Period (s) | Duty | Max speed (m/s) |
+|---|---|---|---|
+| Stand | 1.00 | 1.00 | — |
+| Walk | 0.48 | 0.75 | 0.3 |
+| Trot | 0.30 | 0.60 | 1.2 |
+| Pace | 0.36 | 0.60 | 0.7 |
+| Bounding | 0.28 | 0.55 | 1.2 |
+| Amble | 0.40 | 0.65 | 0.7 |
+
+## Usage
+
+```bash
+pip install mujoco numpy scipy osqp jax
+```
+
+```bash
+python run_sim.py                                  # Go1, trotting
+python run_sim.py --robot a1 --gait bounding
+python run_sim.py --keyboard                       # drive it yourself
+python run_sim.py --headless --duration 10 --vx 0.8 --yaw-rate 0.3
+```
+
+Useful flags: `--robot {go1,a1}`, `--gait {stand,walk,trot,pace,bounding,amble}`,
+`--vx/--vy/--yaw-rate`, `--speed`, `--front-clearance`, `--rear-clearance`, `--no-overlay`.
+
+### Keyboard
+
+| Key | Action |
+|---|---|
+| `W`/`S`, `A`/`D` | drive forward/back, strafe left/right (hold) |
+| `Q`/`E` | turn (hold) |
+| `1`–`6` | stand, walk, trot, pace, bounding, amble |
+| `+`/`-` | adjust drive speed |
+| `Space` / `P` / `R` | stop / pause / reset |
+| `F` / `H` / `Esc` | follow camera / hide overlay / quit |
